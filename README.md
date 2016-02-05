@@ -10,6 +10,8 @@ Demo
 
 http://mcapi3.jumpstartcreatives.com
 
+For assistance you cant contact
+http://jumpstartcreatives.com/contact-us
 
 *******
 Notice
