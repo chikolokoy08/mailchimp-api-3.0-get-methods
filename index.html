@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MailChimp API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+        padding: 50px;
+        box-sizing: border-box;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+      .cmeth {
+        color: red;
+      }
+    </style>
+
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://getbootstrap.com/2.3.2/assets/ico/favicon.png">    
+  </head>
+  <body>
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="http://jumpstartcreatives.com/contact-us" target="_blank">Contact</a></li>
+        </ul>
+        <h3 class="muted">MailChimp API 3.0 Read / GET Methods</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Mailchimp API <br> Read / GET Tester</h1>
+        <p class="lead">Put your MailChimp API here and run methods below.<br>
+            <a href="https://support.classy.org/customer/portal/articles/1569311-where-can-i-find-my-mailchimp-api-key-" target="_blank">Click here to see how to get an API Key</a>
+        </p>
+        <p><input type="text" name="apikey" id="apikey" placeholder="Mailchimp API Key" class="form-control " value="1ca31c740952bb1891935c317d96d244-us11"></p>
+      </div>
+
+      
+
+      <div class="rows-fluid marketing">
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">ACCOUNT INFO</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>
+                    </div>            
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">LISTS</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/lists?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=lists" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/lists?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>        
+                    </div>
+
+                    <div class="col-xs-12"><h4>OTHER METHODS</h4></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a specific list</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/lists/<span class="cmeth">{list_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about members in a list</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/lists/<span class="cmeth">{list_id}/members</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a specific list member</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/lists/<span class="cmeth">{list_id}/members/{subscriber_hash}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">CAMPAIGNS</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=campaigns" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>
+                    </div>
+                    <div class="col-xs-12"><h4>OTHER METHODS</h4></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a specific campaign</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns/<span class="cmeth">{campaign_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div> 
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get campaign content</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns/<span class="cmeth">{campaign_id}/content</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div> 
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get feedback about a campaign</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns/<span class="cmeth">{campaign_id}/feedback</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get a specific feedback message</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns/<span class="cmeth">{campaign_id}/feedback/{feedback_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p> Get the send checklist for a campaign</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/campaigns/<span class="cmeth">{campaign_id}/send-checklist</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>        
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">CONVERSATIONS</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/conversations?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=conversations" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/conversations?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>
+                    </div>
+                    <div class="col-xs-12"><h4>OTHER METHODS</h4></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a conversation</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/conversations/<span class="cmeth">{conversation_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get conversation messages</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/conversations/<span class="cmeth">{conversation_id}/messages</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get a specific conversation message</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/conversations/<span class="cmeth">{conversation_id}/messages/{message_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">AUTHORIZED APPS</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=authorized-apps" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>
+                    </div>
+                    <div class="col-xs-12"><h4>OTHER METHODS</h4></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a specific authorized app</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps/<span class="cmeth">{app_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>                    
+                </div>                
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">AUTOMATIONS</h3></div>
+            <div class="panel-body sgroup">
+                <div class="rows">
+                    <div class="col-xs-5">
+                        <h4>URL</h4>
+                        <p>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/automations?apikey=<span class="apid">&lt;apikey&gt;</span>
+                            <form class="mforms" action="processor.php?method=automations" method="get">
+                                <input type="submit" class="btn btn-sm btn-primary" value="FETCH">
+                            </form>
+                        </p>
+                    </div>
+                    <div class="col-xs-7">
+                        <h4>AJAX Request</h4>
+                        <p><pre>
+var urlpath = http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/automations?apikey=<span class="apid">&lt;apikey&gt;</span>;
+$.getJSON(''+urlpath+'', function(data) {
+    var con = JSON.stringify(JSON.parse(data));
+    console.log(data);
+});
+                        </pre></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>RESULTS</h4>
+                        <p><pre class="result">NULL</pre><p>           
+                    </div>
+                    <div class="col-xs-12"><h4>OTHER METHODS</h4></div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get information about a specific Automation workflow</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps/<span class="cmeth">{workflow_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p>Get a list of automated emails in a workflow</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps/<span class="cmeth">{workflow_id}/emails</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well">
+                            <p> Get information about a specific workflow email</p>
+                            <pre>http://<span class="dc">&lt;dc&gt;</span>.api.mailchimp.com/3.0/authorized-apps/<span class="cmeth">{workflow_id}/emails/{workflow_email_id}</span>?apikey=<span class="apid">&lt;apikey&gt;</span></pre>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p>&copy; Jumpstart Creatives 2016</p>
+      </div>
+
+    </div> <!-- /container -->
+    </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        function fillDatacenter(st) {
+            if ($('#apikey').val() != '') {
+                var ac = st.split('-'),
+                    datacenter = ac[1];
+                $('.dc').html(datacenter);
+                $('.apid').html($('#apikey').val());
+            } else {
+                $('.dc').html('&lt;dc&gt;');
+                $('.apid').html('&lt;apikey&gt;');
+            }
+        }
+
+        fillDatacenter($('#apikey').val());
+
+        $(document).on('blur', '#apikey', function(){
+            fillDatacenter($(this).val());
+        });
+
+        $(document).on('submit', '.mforms', function(e){
+            e.preventDefault();
+            var dis = $(this),
+                urlpath = dis.attr('action'),
+                apikey = $('#apikey'),
+                code = dis.closest('.sgroup').find('.result');
+
+            //validate
+            if (apikey.val() == '') {
+                alert('Please provide Mailchimp API Key');
+                apikey.focus();
+            } else {
+                code.html('FETCHING...');
+                $.getJSON(''+urlpath+'&apikey='+apikey.val()+'', function(data) {
+                    console.log(data);
+                    var con = JSON.stringify(JSON.parse(data));
+                    code.html(data);
+                });
+                // var dataString = dis.serialize();
+                // console.log(dataString);
+                // r = jQueryAjax(urlpath, dataString);
+                // //Handling Promise Object
+                // r.then(function(data){
+                //     console.log(data);
+                // })
+                // //Handling 404 Error
+                // r.error(function(data){
+
+                // });
+            }
+
+        });
+    </script>
+  </body>
+</html>
+
