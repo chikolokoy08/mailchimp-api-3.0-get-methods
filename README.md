@@ -2,7 +2,7 @@
 MailChimp API 3.0 Doc (GET) Methods only
 ###################
 
-An easy documentation of MailChimp API 3.0. But this repo composed of GET methods only. User at your own risk. For complete documentation, refer to http://developer.mailchimp.com/documentation
+An easy documentation of MailChimp API 3.0. But this repo composed of GET methods only. User at your own risk. For complete documentation, refer to http://developer.mailchimp.com/documentation/mailchimp/
 
 *******************
 Demo
